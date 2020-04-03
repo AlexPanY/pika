@@ -14,9 +14,10 @@ func main() {
 
 	g := gin.Default()
 
-	routers.Load(g)
+	g = routers.Load(g)
+	// ginpprof.Wrap(g)
 
-	if err := g.Run(":8080"); err != nil {
+	if err := g.Run(":8082"); err != nil {
 		fmt.Println(err)
 	}
 }

@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"fmt"
 	"net/http"
 	"pika/internal/service"
 
@@ -27,9 +26,8 @@ func GetUserInfoByID(c *gin.Context) {
 	}
 	user, err := service.NewUserService().GetUserInfoByID(req.UserID)
 	if err != nil {
-		fmt.Println(err)
+		user = nil
 	}
-	fmt.Println(user)
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
 		"msg":  "success",
